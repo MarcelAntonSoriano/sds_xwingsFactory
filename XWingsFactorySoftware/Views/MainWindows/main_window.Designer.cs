@@ -81,6 +81,7 @@
             this.Btn_permisos.TabIndex = 1;
             this.Btn_permisos.Text = "Permisos";
             this.Btn_permisos.Transparency = false;
+            this.Btn_permisos.Click += new System.EventHandler(this.Btn_permisos_Click);
             // 
             // Btn_referencias
             // 

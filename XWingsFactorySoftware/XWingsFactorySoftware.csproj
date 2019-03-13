@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{A5FB4F9D-E927-426B-8A5E-685DDA706315}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>XWings_MainWindows</RootNamespace>
-    <AssemblyName>XWings_MainWindows</AssemblyName>
+    <RootNamespace>XWingsFactorySoftware</RootNamespace>
+    <AssemblyName>XWingsFactorySoftware</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -64,9 +64,78 @@
     <Compile Include="CustomControls\custom_treeview.Designer.cs">
       <DependentUpon>custom_treeview.cs</DependentUpon>
     </Compile>
-    <Compile Include="Data\BDTest.cs" />
-    <Compile Include="Models\Nave.cs" />
-    <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Data\AssemblyInstructions.cs">
+      <DependentUpon>bdTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\AssemblyInstructionsDetail.cs">
+      <DependentUpon>bdTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\bdTest.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bdTest.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\bdTest.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bdTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\bdTest.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bdTest.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FactoryUsers.cs">
+      <DependentUpon>bdTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FinalProduct.cs">
+      <DependentUpon>bdTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FinalProductDetails.cs">
+      <DependentUpon>bdTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\IntermediateProduct.cs">
+      <DependentUpon>bdTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\LOP.cs">
+      <DependentUpon>bdTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\LOPDetails.cs">
+      <DependentUpon>bdTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\OperationParts.cs">
+      <DependentUpon>bdTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Orders.cs">
+      <DependentUpon>bdTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\OrdersDetail.cs">
+      <DependentUpon>bdTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\References.cs">
+      <DependentUpon>bdTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ReferenceTypes.cs">
+      <DependentUpon>bdTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Status.cs">
+      <DependentUpon>bdTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\StockMovements.cs">
+      <DependentUpon>bdTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\StockMovementTypes.cs">
+      <DependentUpon>bdTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Stocks.cs">
+      <DependentUpon>bdTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Structure.cs">
+      <DependentUpon>bdTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\UserTypes.cs">
+      <DependentUpon>bdTest.tt</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainWindows\login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +147,12 @@
     </Compile>
     <Compile Include="Views\MainWindows\main_window.Designer.cs">
       <DependentUpon>main_window.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Mantenimiento\AccessLevel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Mantenimiento\AccessLevel.Designer.cs">
+      <DependentUpon>AccessLevel.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\OtrasGestiones\escandallo_form.cs">
       <SubType>Form</SubType>
@@ -118,6 +193,13 @@
     <EmbeddedResource Include="Views\OtrasGestiones\escandallo_form.resx">
       <DependentUpon>escandallo_form.cs</DependentUpon>
     </EmbeddedResource>
+    <EntityDeploy Include="Data\bdTest.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>bdTest.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Data\bdTest.edmx.diagram">
+      <DependentUpon>bdTest.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -133,7 +215,22 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Mantenimiento\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\bdTest.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>bdTest.edmx</DependentUpon>
+      <LastGenOutput>bdTest.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Data\bdTest.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>bdTest.edmx</DependentUpon>
+      <LastGenOutput>bdTest.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

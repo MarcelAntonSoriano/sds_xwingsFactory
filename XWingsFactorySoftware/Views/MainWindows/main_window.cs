@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using XWings_MainWindows.OtrasGestiones;
+using XWings_MainWindows.Views.Mantenimiento;
 
 namespace XWingsFactorySoftware
 {
@@ -15,6 +16,12 @@ namespace XWingsFactorySoftware
         {
             escandallo_form escandallo = new escandallo_form();
             escandallo.Show();
+        }
+
+        private void Btn_permisos_Click(object sender, EventArgs e)
+        {
+            AccessLevel acceso = new AccessLevel();
+            acceso.Show();
         }
     }
 }

@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelsStoreContainer" CdmEntityContainer="xwingsfactoryEntities">
+    <EntitySetMapping Name="AssemblyInstructions">
+      <EntityTypeMapping TypeName="Models.AssemblyInstructions">
+        <MappingFragment StoreEntitySet="AssemblyInstructions">
+          <ScalarProperty Name="idAssemblyInstructions" ColumnName="idAssemblyInstructions" />
+          <ScalarProperty Name="idreference" ColumnName="idreference" />
+          <ScalarProperty Name="Instructions" ColumnName="Instructions" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssemblyInstructionsDetail">
+      <EntityTypeMapping TypeName="Models.AssemblyInstructionsDetail">
+        <MappingFragment StoreEntitySet="AssemblyInstructionsDetail">
+          <ScalarProperty Name="idAssemblyInstructionsDetail" ColumnName="idAssemblyInstructionsDetail" />
+          <ScalarProperty Name="idAssemblyInstructions" ColumnName="idAssemblyInstructions" />
+          <ScalarProperty Name="CodeOperation" ColumnName="CodeOperation" />
+          <ScalarProperty Name="DescOperation" ColumnName="DescOperation" />
+          <ScalarProperty Name="NumberOfUsers" ColumnName="NumberOfUsers" />
+          <ScalarProperty Name="OperationOrder" ColumnName="OperationOrder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FactoryUsers">
+      <EntityTypeMapping TypeName="Models.FactoryUsers">
+        <MappingFragment StoreEntitySet="FactoryUsers">
+          <ScalarProperty Name="idUser" ColumnName="idUser" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="idUserType" ColumnName="idUserType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FinalProduct">
+      <EntityTypeMapping TypeName="Models.FinalProduct">
+        <MappingFragment StoreEntitySet="FinalProduct">
+          <ScalarProperty Name="idFinalProduct" ColumnName="idFinalProduct" />
+          <ScalarProperty Name="idReference" ColumnName="idReference" />
+          <ScalarProperty Name="codeProduct" ColumnName="codeProduct" />
+          <ScalarProperty Name="idStatus" ColumnName="idStatus" />
+          <ScalarProperty Name="idLOPDetail" ColumnName="idLOPDetail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FinalProductDetails">
+      <EntityTypeMapping TypeName="Models.FinalProductDetails">
+        <MappingFragment StoreEntitySet="FinalProductDetails">
+          <ScalarProperty Name="idFinalProductDetail" ColumnName="idFinalProductDetail" />
+          <ScalarProperty Name="idFinalProduct" ColumnName="idFinalProduct" />
+          <ScalarProperty Name="idIntermediateProduct" ColumnName="idIntermediateProduct" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IntermediateProduct">
+      <EntityTypeMapping TypeName="Models.IntermediateProduct">
+        <MappingFragment StoreEntitySet="IntermediateProduct">
+          <ScalarProperty Name="idIntermediateProduct" ColumnName="idIntermediateProduct" />
+          <ScalarProperty Name="idReference" ColumnName="idReference" />
+          <ScalarProperty Name="idLOPDetail" ColumnName="idLOPDetail" />
+          <ScalarProperty Name="ReferenceCode" ColumnName="ReferenceCode" />
+          <ScalarProperty Name="idStatus" ColumnName="idStatus" />
+          <ScalarProperty Name="idUser" ColumnName="idUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOP">
+      <EntityTypeMapping TypeName="Models.LOP">
+        <MappingFragment StoreEntitySet="LOP">
+          <ScalarProperty Name="idLOP" ColumnName="idLOP" />
+          <ScalarProperty Name="idOrder" ColumnName="idOrder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOPDetails">
+      <EntityTypeMapping TypeName="Models.LOPDetails">
+        <MappingFragment StoreEntitySet="LOPDetails">
+          <ScalarProperty Name="idLOPDetail" ColumnName="idLOPDetail" />
+          <ScalarProperty Name="idLOP" ColumnName="idLOP" />
+          <ScalarProperty Name="idReference" ColumnName="idReference" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OperationParts">
+      <EntityTypeMapping TypeName="Models.OperationParts">
+        <MappingFragment StoreEntitySet="OperationParts">
+          <ScalarProperty Name="idOperationParts" ColumnName="idOperationParts" />
+          <ScalarProperty Name="idAssemblyInstructionsDetail" ColumnName="idAssemblyInstructionsDetail" />
+          <ScalarProperty Name="idReference" ColumnName="idReference" />
+          <ScalarProperty Name="NumberOfPieces" ColumnName="NumberOfPieces" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="Models.Orders">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="idOrder" ColumnName="idOrder" />
+          <ScalarProperty Name="codeOrder" ColumnName="codeOrder" />
+          <ScalarProperty Name="dateOrder" ColumnName="dateOrder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrdersDetail">
+      <EntityTypeMapping TypeName="Models.OrdersDetail">
+        <MappingFragment StoreEntitySet="OrdersDetail">
+          <ScalarProperty Name="idOrderDetail" ColumnName="idOrderDetail" />
+          <ScalarProperty Name="idOrder" ColumnName="idOrder" />
+          <ScalarProperty Name="idPlanet" ColumnName="idPlanet" />
+          <ScalarProperty Name="idReference" ColumnName="idReference" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="References">
+      <EntityTypeMapping TypeName="Models.References">
+        <MappingFragment StoreEntitySet="References">
+          <ScalarProperty Name="idReference" ColumnName="idReference" />
+          <ScalarProperty Name="codeReference" ColumnName="codeReference" />
+          <ScalarProperty Name="descReference" ColumnName="descReference" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="VideoExplode" ColumnName="VideoExplode" />
+          <ScalarProperty Name="idReferenceType" ColumnName="idReferenceType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReferenceTypes">
+      <EntityTypeMapping TypeName="Models.ReferenceTypes">
+        <MappingFragment StoreEntitySet="ReferenceTypes">
+          <ScalarProperty Name="idReferenceType" ColumnName="idReferenceType" />
+          <ScalarProperty Name="codeReferenceType" ColumnName="codeReferenceType" />
+          <ScalarProperty Name="descReferenceType" ColumnName="descReferenceType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status">
+      <EntityTypeMapping TypeName="Models.Status">
+        <MappingFragment StoreEntitySet="Status">
+          <ScalarProperty Name="idStatus" ColumnName="idStatus" />
+          <ScalarProperty Name="codeStatus" ColumnName="codeStatus" />
+          <ScalarProperty Name="descStatus" ColumnName="descStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StockMovements">
+      <EntityTypeMapping TypeName="Models.StockMovements">
+        <MappingFragment StoreEntitySet="StockMovements">
+          <ScalarProperty Name="idStockMovement" ColumnName="idStockMovement" />
+          <ScalarProperty Name="idStockMovementTypes" ColumnName="idStockMovementTypes" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="idDocument" ColumnName="idDocument" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StockMovementTypes">
+      <EntityTypeMapping TypeName="Models.StockMovementTypes">
+        <MappingFragment StoreEntitySet="StockMovementTypes">
+          <ScalarProperty Name="idStockMovementTypes" ColumnName="idStockMovementTypes" />
+          <ScalarProperty Name="codeStockMovementTypes" ColumnName="codeStockMovementTypes" />
+          <ScalarProperty Name="descStockMovementTypes" ColumnName="descStockMovementTypes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stocks">
+      <EntityTypeMapping TypeName="Models.Stocks">
+        <MappingFragment StoreEntitySet="Stocks">
+          <ScalarProperty Name="idStock" ColumnName="idStock" />
+          <ScalarProperty Name="idReference" ColumnName="idReference" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Structure">
+      <EntityTypeMapping TypeName="Models.Structure">
+        <MappingFragment StoreEntitySet="Structure">
+          <ScalarProperty Name="idStructure" ColumnName="idStructure" />
+          <ScalarProperty Name="idReferenceFinal" ColumnName="idReferenceFinal" />
+          <ScalarProperty Name="idReferencePart" ColumnName="idReferencePart" />
+          <ScalarProperty Name="NumberOfParts" ColumnName="NumberOfParts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserTypes">
+      <EntityTypeMapping TypeName="Models.UserTypes">
+        <MappingFragment StoreEntitySet="UserTypes">
+          <ScalarProperty Name="idUserType" ColumnName="idUserType" />
+          <ScalarProperty Name="codeUserType" ColumnName="codeUserType" />
+          <ScalarProperty Name="descUserType" ColumnName="descUserType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
