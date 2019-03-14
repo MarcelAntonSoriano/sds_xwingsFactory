@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using XWings_MainWindows.OtrasGestiones;
 using XWings_MainWindows.Views.Mantenimiento;
 using XWingsFactorySoftware.Views.Mantenimiento;
+using XWingsFactorySoftware.Views.OtrasGestiones;
 
 namespace XWingsFactorySoftware
 {
@@ -25,10 +26,10 @@ namespace XWingsFactorySoftware
             acceso.Show();
         }
 
-        private void Btn_users_Click(object sender, EventArgs e)
+        private void Btn_instrucciones_Click(object sender, EventArgs e)
         {
-            Users users = new Users();
-            users.Show();
+            instrucciones_montaje instrucciones = new instrucciones_montaje();
+            instrucciones.Show();
         }
     }
 }
