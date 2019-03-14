@@ -7,15 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace XWingsFactorySoftware.Data
+namespace XWingsFactorySoftware.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class StockMovementTypes
+    public partial class Stocks
     {
-        public short idStockMovementTypes { get; set; }
-        public string codeStockMovementTypes { get; set; }
-        public string descStockMovementTypes { get; set; }
+        public short idStock { get; set; }
+        public short idReference { get; set; }
+        public Nullable<short> Stock { get; set; }
     }
 }

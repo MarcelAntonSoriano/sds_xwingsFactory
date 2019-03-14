@@ -7,27 +7,25 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace XWingsFactorySoftware.Data
+namespace XWingsFactorySoftware.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Status
+    public partial class AssemblyInstructions
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Status()
+        public AssemblyInstructions()
         {
-            this.FinalProduct = new HashSet<FinalProduct>();
-            this.IntermediateProduct = new HashSet<IntermediateProduct>();
+            this.AssemblyInstructionsDetail = new HashSet<AssemblyInstructionsDetail>();
         }
     
-        public short idStatus { get; set; }
-        public string codeStatus { get; set; }
-        public string descStatus { get; set; }
+        public short idAssemblyInstructions { get; set; }
+        public Nullable<short> idreference { get; set; }
+        public byte[] Instructions { get; set; }
     
+        public virtual References References { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FinalProduct> FinalProduct { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<IntermediateProduct> IntermediateProduct { get; set; }
+        public virtual ICollection<AssemblyInstructionsDetail> AssemblyInstructionsDetail { get; set; }
     }
 }

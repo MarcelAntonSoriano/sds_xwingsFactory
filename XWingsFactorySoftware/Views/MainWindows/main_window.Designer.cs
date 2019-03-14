@@ -61,6 +61,7 @@
             this.Btn_users.TabIndex = 0;
             this.Btn_users.Text = "Usuarios";
             this.Btn_users.Transparency = false;
+            this.Btn_users.Click += new System.EventHandler(this.Btn_users_Click);
             // 
             // Btn_permisos
             // 

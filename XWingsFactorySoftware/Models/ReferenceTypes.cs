@@ -7,25 +7,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace XWingsFactorySoftware.Data
+namespace XWingsFactorySoftware.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class AssemblyInstructions
+    public partial class ReferenceTypes
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public AssemblyInstructions()
+        public ReferenceTypes()
         {
-            this.AssemblyInstructionsDetail = new HashSet<AssemblyInstructionsDetail>();
+            this.References = new HashSet<References>();
         }
     
-        public short idAssemblyInstructions { get; set; }
-        public Nullable<short> idreference { get; set; }
-        public byte[] Instructions { get; set; }
+        public short idReferenceType { get; set; }
+        public string codeReferenceType { get; set; }
+        public string descReferenceType { get; set; }
     
-        public virtual References References { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AssemblyInstructionsDetail> AssemblyInstructionsDetail { get; set; }
+        public virtual ICollection<References> References { get; set; }
     }
 }

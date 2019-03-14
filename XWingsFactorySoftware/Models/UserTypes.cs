@@ -7,15 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace XWingsFactorySoftware.Data
+namespace XWingsFactorySoftware.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class FactoryUsers
+    public partial class UserTypes
     {
-        public short idUser { get; set; }
-        public string UserName { get; set; }
         public short idUserType { get; set; }
+        public string codeUserType { get; set; }
+        public string descUserType { get; set; }
     }
 }

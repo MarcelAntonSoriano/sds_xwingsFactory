@@ -1,0 +1,481 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AssemblyInstructions">
+    <Key>
+      <PropertyRef Name="idAssemblyInstructions" />
+    </Key>
+    <Property Name="idAssemblyInstructions" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idreference" Type="Int16" />
+    <Property Name="Instructions" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="References" Relationship="Self.FK_AssemblyInstructions_References" FromRole="AssemblyInstructions" ToRole="References" />
+    <NavigationProperty Name="AssemblyInstructionsDetail" Relationship="Self.FK_AssemblyInstructionsDetail_AssemblyInstructions" FromRole="AssemblyInstructions" ToRole="AssemblyInstructionsDetail" />
+  </EntityType>
+  <EntityType Name="AssemblyInstructionsDetail">
+    <Key>
+      <PropertyRef Name="idAssemblyInstructionsDetail" />
+    </Key>
+    <Property Name="idAssemblyInstructionsDetail" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idAssemblyInstructions" Type="Int16" Nullable="false" />
+    <Property Name="CodeOperation" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="DescOperation" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="NumberOfUsers" Type="Int16" />
+    <Property Name="OperationOrder" Type="Int16" />
+    <NavigationProperty Name="AssemblyInstructions" Relationship="Self.FK_AssemblyInstructionsDetail_AssemblyInstructions" FromRole="AssemblyInstructionsDetail" ToRole="AssemblyInstructions" />
+    <NavigationProperty Name="OperationParts" Relationship="Self.FK_OperationParts_AssemblyInstructionsDetail" FromRole="AssemblyInstructionsDetail" ToRole="OperationParts" />
+  </EntityType>
+  <EntityType Name="FactoryUsers">
+    <Key>
+      <PropertyRef Name="idUser" />
+    </Key>
+    <Property Name="idUser" Type="Int16" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="idUserType" Type="Int16" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FinalProduct">
+    <Key>
+      <PropertyRef Name="idFinalProduct" />
+    </Key>
+    <Property Name="idFinalProduct" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idReference" Type="Int16" Nullable="false" />
+    <Property Name="codeProduct" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="idStatus" Type="Int16" Nullable="false" />
+    <Property Name="idLOPDetail" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="LOPDetails" Relationship="Self.FK_FinalProduct_LOPDetails" FromRole="FinalProduct" ToRole="LOPDetails" />
+    <NavigationProperty Name="Status" Relationship="Self.FK_FinalProduct_Status" FromRole="FinalProduct" ToRole="Status" />
+    <NavigationProperty Name="FinalProductDetails" Relationship="Self.FK_FinalProductDetails_FinalProduct" FromRole="FinalProduct" ToRole="FinalProductDetails" />
+  </EntityType>
+  <EntityType Name="FinalProductDetails">
+    <Key>
+      <PropertyRef Name="idFinalProductDetail" />
+    </Key>
+    <Property Name="idFinalProductDetail" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idFinalProduct" Type="Int16" Nullable="false" />
+    <Property Name="idIntermediateProduct" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="FinalProduct" Relationship="Self.FK_FinalProductDetails_FinalProduct" FromRole="FinalProductDetails" ToRole="FinalProduct" />
+    <NavigationProperty Name="IntermediateProduct" Relationship="Self.FK_FinalProductDetails_IntermediateProduct" FromRole="FinalProductDetails" ToRole="IntermediateProduct" />
+  </EntityType>
+  <EntityType Name="IntermediateProduct">
+    <Key>
+      <PropertyRef Name="idIntermediateProduct" />
+    </Key>
+    <Property Name="idIntermediateProduct" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idReference" Type="Int16" Nullable="false" />
+    <Property Name="idLOPDetail" Type="Int16" Nullable="false" />
+    <Property Name="ReferenceCode" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="idStatus" Type="Int16" Nullable="false" />
+    <Property Name="idUser" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="FinalProductDetails" Relationship="Self.FK_FinalProductDetails_IntermediateProduct" FromRole="IntermediateProduct" ToRole="FinalProductDetails" />
+    <NavigationProperty Name="LOPDetails" Relationship="Self.FK_IntermediateProduct_LOPDetails" FromRole="IntermediateProduct" ToRole="LOPDetails" />
+    <NavigationProperty Name="Status" Relationship="Self.FK_IntermediateProduct_Status" FromRole="IntermediateProduct" ToRole="Status" />
+  </EntityType>
+  <EntityType Name="LOP">
+    <Key>
+      <PropertyRef Name="idLOP" />
+    </Key>
+    <Property Name="idLOP" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idOrder" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_LOP_Orders" FromRole="LOP" ToRole="Orders" />
+    <NavigationProperty Name="LOPDetails" Relationship="Self.FK_LOPDetails_LOP" FromRole="LOP" ToRole="LOPDetails" />
+  </EntityType>
+  <EntityType Name="LOPDetails">
+    <Key>
+      <PropertyRef Name="idLOPDetail" />
+    </Key>
+    <Property Name="idLOPDetail" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idLOP" Type="Int16" Nullable="false" />
+    <Property Name="idReference" Type="Int16" Nullable="false" />
+    <Property Name="Quantity" Type="Int16" />
+    <NavigationProperty Name="FinalProduct" Relationship="Self.FK_FinalProduct_LOPDetails" FromRole="LOPDetails" ToRole="FinalProduct" />
+    <NavigationProperty Name="IntermediateProduct" Relationship="Self.FK_IntermediateProduct_LOPDetails" FromRole="LOPDetails" ToRole="IntermediateProduct" />
+    <NavigationProperty Name="LOP" Relationship="Self.FK_LOPDetails_LOP" FromRole="LOPDetails" ToRole="LOP" />
+  </EntityType>
+  <EntityType Name="OperationParts">
+    <Key>
+      <PropertyRef Name="idOperationParts" />
+    </Key>
+    <Property Name="idOperationParts" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idAssemblyInstructionsDetail" Type="Int16" />
+    <Property Name="idReference" Type="Int16" />
+    <Property Name="NumberOfPieces" Type="Int16" />
+    <NavigationProperty Name="AssemblyInstructionsDetail" Relationship="Self.FK_OperationParts_AssemblyInstructionsDetail" FromRole="OperationParts" ToRole="AssemblyInstructionsDetail" />
+    <NavigationProperty Name="References" Relationship="Self.FK_OperationParts_References" FromRole="OperationParts" ToRole="References" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="idOrder" />
+    </Key>
+    <Property Name="idOrder" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codeOrder" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="dateOrder" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="LOP" Relationship="Self.FK_LOP_Orders" FromRole="Orders" ToRole="LOP" />
+    <NavigationProperty Name="OrdersDetail" Relationship="Self.FK_OrdersDetail_Orders" FromRole="Orders" ToRole="OrdersDetail" />
+  </EntityType>
+  <EntityType Name="OrdersDetail">
+    <Key>
+      <PropertyRef Name="idOrderDetail" />
+    </Key>
+    <Property Name="idOrderDetail" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idOrder" Type="Int16" />
+    <Property Name="idPlanet" Type="Int16" />
+    <Property Name="idReference" Type="Int16" />
+    <Property Name="Quantity" Type="Int16" />
+    <Property Name="DeliveryDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_OrdersDetail_Orders" FromRole="OrdersDetail" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="References">
+    <Key>
+      <PropertyRef Name="idReference" />
+    </Key>
+    <Property Name="idReference" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codeReference" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="descReference" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="VideoExplode" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="idReferenceType" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="AssemblyInstructions" Relationship="Self.FK_AssemblyInstructions_References" FromRole="References" ToRole="AssemblyInstructions" />
+    <NavigationProperty Name="OperationParts" Relationship="Self.FK_OperationParts_References" FromRole="References" ToRole="OperationParts" />
+    <NavigationProperty Name="ReferenceTypes" Relationship="Self.FK_References_ReferenceTypes" FromRole="References" ToRole="ReferenceTypes" />
+    <NavigationProperty Name="Structure" Relationship="Self.FK_Structure_References" FromRole="References" ToRole="Structure" />
+    <NavigationProperty Name="Structure1" Relationship="Self.FK_Structure_References1" FromRole="References" ToRole="Structure" />
+  </EntityType>
+  <EntityType Name="ReferenceTypes">
+    <Key>
+      <PropertyRef Name="idReferenceType" />
+    </Key>
+    <Property Name="idReferenceType" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codeReferenceType" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="descReferenceType" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="References" Relationship="Self.FK_References_ReferenceTypes" FromRole="ReferenceTypes" ToRole="References" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="idStatus" />
+    </Key>
+    <Property Name="idStatus" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codeStatus" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="descStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="FinalProduct" Relationship="Self.FK_FinalProduct_Status" FromRole="Status" ToRole="FinalProduct" />
+    <NavigationProperty Name="IntermediateProduct" Relationship="Self.FK_IntermediateProduct_Status" FromRole="Status" ToRole="IntermediateProduct" />
+  </EntityType>
+  <EntityType Name="StockMovements">
+    <Key>
+      <PropertyRef Name="idStockMovement" />
+    </Key>
+    <Property Name="idStockMovement" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idStockMovementTypes" Type="Int16" Nullable="false" />
+    <Property Name="Quantity" Type="Int16" />
+    <Property Name="idDocument" Type="Int16" />
+  </EntityType>
+  <EntityType Name="StockMovementTypes">
+    <Key>
+      <PropertyRef Name="idStockMovementTypes" />
+    </Key>
+    <Property Name="idStockMovementTypes" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codeStockMovementTypes" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="descStockMovementTypes" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Stocks">
+    <Key>
+      <PropertyRef Name="idStock" />
+    </Key>
+    <Property Name="idStock" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idReference" Type="Int16" Nullable="false" />
+    <Property Name="Stock" Type="Int16" />
+  </EntityType>
+  <EntityType Name="Structure">
+    <Key>
+      <PropertyRef Name="idStructure" />
+    </Key>
+    <Property Name="idStructure" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idReferenceFinal" Type="Int16" />
+    <Property Name="idReferencePart" Type="Int16" />
+    <Property Name="NumberOfParts" Type="Int16" />
+    <NavigationProperty Name="References" Relationship="Self.FK_Structure_References" FromRole="Structure" ToRole="References" />
+    <NavigationProperty Name="References1" Relationship="Self.FK_Structure_References1" FromRole="Structure" ToRole="References" />
+  </EntityType>
+  <EntityType Name="UserTypes">
+    <Key>
+      <PropertyRef Name="idUserType" />
+    </Key>
+    <Property Name="idUserType" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codeUserType" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="descUserType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_AssemblyInstructions_References">
+    <End Role="References" Type="Self.References" Multiplicity="0..1" />
+    <End Role="AssemblyInstructions" Type="Self.AssemblyInstructions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="References">
+        <PropertyRef Name="idReference" />
+      </Principal>
+      <Dependent Role="AssemblyInstructions">
+        <PropertyRef Name="idreference" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AssemblyInstructionsDetail_AssemblyInstructions">
+    <End Role="AssemblyInstructions" Type="Self.AssemblyInstructions" Multiplicity="1" />
+    <End Role="AssemblyInstructionsDetail" Type="Self.AssemblyInstructionsDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AssemblyInstructions">
+        <PropertyRef Name="idAssemblyInstructions" />
+      </Principal>
+      <Dependent Role="AssemblyInstructionsDetail">
+        <PropertyRef Name="idAssemblyInstructions" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OperationParts_AssemblyInstructionsDetail">
+    <End Role="AssemblyInstructionsDetail" Type="Self.AssemblyInstructionsDetail" Multiplicity="0..1" />
+    <End Role="OperationParts" Type="Self.OperationParts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AssemblyInstructionsDetail">
+        <PropertyRef Name="idAssemblyInstructionsDetail" />
+      </Principal>
+      <Dependent Role="OperationParts">
+        <PropertyRef Name="idAssemblyInstructionsDetail" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FinalProduct_LOPDetails">
+    <End Role="LOPDetails" Type="Self.LOPDetails" Multiplicity="1" />
+    <End Role="FinalProduct" Type="Self.FinalProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOPDetails">
+        <PropertyRef Name="idLOPDetail" />
+      </Principal>
+      <Dependent Role="FinalProduct">
+        <PropertyRef Name="idLOPDetail" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FinalProduct_Status">
+    <End Role="Status" Type="Self.Status" Multiplicity="1" />
+    <End Role="FinalProduct" Type="Self.FinalProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="idStatus" />
+      </Principal>
+      <Dependent Role="FinalProduct">
+        <PropertyRef Name="idStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FinalProductDetails_FinalProduct">
+    <End Role="FinalProduct" Type="Self.FinalProduct" Multiplicity="1" />
+    <End Role="FinalProductDetails" Type="Self.FinalProductDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FinalProduct">
+        <PropertyRef Name="idFinalProduct" />
+      </Principal>
+      <Dependent Role="FinalProductDetails">
+        <PropertyRef Name="idFinalProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FinalProductDetails_IntermediateProduct">
+    <End Role="IntermediateProduct" Type="Self.IntermediateProduct" Multiplicity="1" />
+    <End Role="FinalProductDetails" Type="Self.FinalProductDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IntermediateProduct">
+        <PropertyRef Name="idIntermediateProduct" />
+      </Principal>
+      <Dependent Role="FinalProductDetails">
+        <PropertyRef Name="idIntermediateProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IntermediateProduct_LOPDetails">
+    <End Role="LOPDetails" Type="Self.LOPDetails" Multiplicity="1" />
+    <End Role="IntermediateProduct" Type="Self.IntermediateProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOPDetails">
+        <PropertyRef Name="idLOPDetail" />
+      </Principal>
+      <Dependent Role="IntermediateProduct">
+        <PropertyRef Name="idLOPDetail" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IntermediateProduct_Status">
+    <End Role="Status" Type="Self.Status" Multiplicity="1" />
+    <End Role="IntermediateProduct" Type="Self.IntermediateProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="idStatus" />
+      </Principal>
+      <Dependent Role="IntermediateProduct">
+        <PropertyRef Name="idStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LOP_Orders">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+    <End Role="LOP" Type="Self.LOP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="idOrder" />
+      </Principal>
+      <Dependent Role="LOP">
+        <PropertyRef Name="idOrder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LOPDetails_LOP">
+    <End Role="LOP" Type="Self.LOP" Multiplicity="1" />
+    <End Role="LOPDetails" Type="Self.LOPDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOP">
+        <PropertyRef Name="idLOP" />
+      </Principal>
+      <Dependent Role="LOPDetails">
+        <PropertyRef Name="idLOP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OperationParts_References">
+    <End Role="References" Type="Self.References" Multiplicity="0..1" />
+    <End Role="OperationParts" Type="Self.OperationParts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="References">
+        <PropertyRef Name="idReference" />
+      </Principal>
+      <Dependent Role="OperationParts">
+        <PropertyRef Name="idReference" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrdersDetail_Orders">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+    <End Role="OrdersDetail" Type="Self.OrdersDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="idOrder" />
+      </Principal>
+      <Dependent Role="OrdersDetail">
+        <PropertyRef Name="idOrder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_References_ReferenceTypes">
+    <End Role="ReferenceTypes" Type="Self.ReferenceTypes" Multiplicity="1" />
+    <End Role="References" Type="Self.References" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReferenceTypes">
+        <PropertyRef Name="idReferenceType" />
+      </Principal>
+      <Dependent Role="References">
+        <PropertyRef Name="idReferenceType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Structure_References">
+    <End Role="References" Type="Self.References" Multiplicity="0..1" />
+    <End Role="Structure" Type="Self.Structure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="References">
+        <PropertyRef Name="idReference" />
+      </Principal>
+      <Dependent Role="Structure">
+        <PropertyRef Name="idReferenceFinal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Structure_References1">
+    <End Role="References" Type="Self.References" Multiplicity="0..1" />
+    <End Role="Structure" Type="Self.Structure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="References">
+        <PropertyRef Name="idReference" />
+      </Principal>
+      <Dependent Role="Structure">
+        <PropertyRef Name="idReferencePart" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="xwingsfactoryEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AssemblyInstructions" EntityType="Self.AssemblyInstructions" />
+    <EntitySet Name="AssemblyInstructionsDetail" EntityType="Self.AssemblyInstructionsDetail" />
+    <EntitySet Name="FactoryUsers" EntityType="Self.FactoryUsers" />
+    <EntitySet Name="FinalProduct" EntityType="Self.FinalProduct" />
+    <EntitySet Name="FinalProductDetails" EntityType="Self.FinalProductDetails" />
+    <EntitySet Name="IntermediateProduct" EntityType="Self.IntermediateProduct" />
+    <EntitySet Name="LOP" EntityType="Self.LOP" />
+    <EntitySet Name="LOPDetails" EntityType="Self.LOPDetails" />
+    <EntitySet Name="OperationParts" EntityType="Self.OperationParts" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" />
+    <EntitySet Name="OrdersDetail" EntityType="Self.OrdersDetail" />
+    <EntitySet Name="References" EntityType="Self.References" />
+    <EntitySet Name="ReferenceTypes" EntityType="Self.ReferenceTypes" />
+    <EntitySet Name="Status" EntityType="Self.Status" />
+    <EntitySet Name="StockMovements" EntityType="Self.StockMovements" />
+    <EntitySet Name="StockMovementTypes" EntityType="Self.StockMovementTypes" />
+    <EntitySet Name="Stocks" EntityType="Self.Stocks" />
+    <EntitySet Name="Structure" EntityType="Self.Structure" />
+    <EntitySet Name="UserTypes" EntityType="Self.UserTypes" />
+    <AssociationSet Name="FK_AssemblyInstructions_References" Association="Self.FK_AssemblyInstructions_References">
+      <End Role="References" EntitySet="References" />
+      <End Role="AssemblyInstructions" EntitySet="AssemblyInstructions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AssemblyInstructionsDetail_AssemblyInstructions" Association="Self.FK_AssemblyInstructionsDetail_AssemblyInstructions">
+      <End Role="AssemblyInstructions" EntitySet="AssemblyInstructions" />
+      <End Role="AssemblyInstructionsDetail" EntitySet="AssemblyInstructionsDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OperationParts_AssemblyInstructionsDetail" Association="Self.FK_OperationParts_AssemblyInstructionsDetail">
+      <End Role="AssemblyInstructionsDetail" EntitySet="AssemblyInstructionsDetail" />
+      <End Role="OperationParts" EntitySet="OperationParts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FinalProduct_LOPDetails" Association="Self.FK_FinalProduct_LOPDetails">
+      <End Role="LOPDetails" EntitySet="LOPDetails" />
+      <End Role="FinalProduct" EntitySet="FinalProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FinalProduct_Status" Association="Self.FK_FinalProduct_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="FinalProduct" EntitySet="FinalProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FinalProductDetails_FinalProduct" Association="Self.FK_FinalProductDetails_FinalProduct">
+      <End Role="FinalProduct" EntitySet="FinalProduct" />
+      <End Role="FinalProductDetails" EntitySet="FinalProductDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FinalProductDetails_IntermediateProduct" Association="Self.FK_FinalProductDetails_IntermediateProduct">
+      <End Role="IntermediateProduct" EntitySet="IntermediateProduct" />
+      <End Role="FinalProductDetails" EntitySet="FinalProductDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IntermediateProduct_LOPDetails" Association="Self.FK_IntermediateProduct_LOPDetails">
+      <End Role="LOPDetails" EntitySet="LOPDetails" />
+      <End Role="IntermediateProduct" EntitySet="IntermediateProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IntermediateProduct_Status" Association="Self.FK_IntermediateProduct_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="IntermediateProduct" EntitySet="IntermediateProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LOP_Orders" Association="Self.FK_LOP_Orders">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="LOP" EntitySet="LOP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LOPDetails_LOP" Association="Self.FK_LOPDetails_LOP">
+      <End Role="LOP" EntitySet="LOP" />
+      <End Role="LOPDetails" EntitySet="LOPDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OperationParts_References" Association="Self.FK_OperationParts_References">
+      <End Role="References" EntitySet="References" />
+      <End Role="OperationParts" EntitySet="OperationParts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrdersDetail_Orders" Association="Self.FK_OrdersDetail_Orders">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrdersDetail" EntitySet="OrdersDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_References_ReferenceTypes" Association="Self.FK_References_ReferenceTypes">
+      <End Role="ReferenceTypes" EntitySet="ReferenceTypes" />
+      <End Role="References" EntitySet="References" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Structure_References" Association="Self.FK_Structure_References">
+      <End Role="References" EntitySet="References" />
+      <End Role="Structure" EntitySet="Structure" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Structure_References1" Association="Self.FK_Structure_References1">
+      <End Role="References" EntitySet="References" />
+      <End Role="Structure" EntitySet="Structure" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

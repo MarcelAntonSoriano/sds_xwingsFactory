@@ -7,24 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace XWingsFactorySoftware.Data
+namespace XWingsFactorySoftware.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class LOP
+    public partial class Status
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public LOP()
+        public Status()
         {
-            this.LOPDetails = new HashSet<LOPDetails>();
+            this.FinalProduct = new HashSet<FinalProduct>();
+            this.IntermediateProduct = new HashSet<IntermediateProduct>();
         }
     
-        public short idLOP { get; set; }
-        public short idOrder { get; set; }
+        public short idStatus { get; set; }
+        public string codeStatus { get; set; }
+        public string descStatus { get; set; }
     
-        public virtual Orders Orders { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LOPDetails> LOPDetails { get; set; }
+        public virtual ICollection<FinalProduct> FinalProduct { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<IntermediateProduct> IntermediateProduct { get; set; }
     }
 }

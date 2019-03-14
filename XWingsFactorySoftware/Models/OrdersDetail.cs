@@ -7,15 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace XWingsFactorySoftware.Data
+namespace XWingsFactorySoftware.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class UserTypes
+    public partial class OrdersDetail
     {
-        public short idUserType { get; set; }
-        public string codeUserType { get; set; }
-        public string descUserType { get; set; }
+        public short idOrderDetail { get; set; }
+        public Nullable<short> idOrder { get; set; }
+        public Nullable<short> idPlanet { get; set; }
+        public Nullable<short> idReference { get; set; }
+        public Nullable<short> Quantity { get; set; }
+        public Nullable<System.DateTime> DeliveryDate { get; set; }
+    
+        public virtual Orders Orders { get; set; }
     }
 }

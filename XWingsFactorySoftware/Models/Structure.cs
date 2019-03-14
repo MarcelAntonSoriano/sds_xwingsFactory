@@ -7,15 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace XWingsFactorySoftware.Data
+namespace XWingsFactorySoftware.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Stocks
+    public partial class Structure
     {
-        public short idStock { get; set; }
-        public short idReference { get; set; }
-        public Nullable<short> Stock { get; set; }
+        public short idStructure { get; set; }
+        public Nullable<short> idReferenceFinal { get; set; }
+        public Nullable<short> idReferencePart { get; set; }
+        public Nullable<short> NumberOfParts { get; set; }
+    
+        public virtual References References { get; set; }
+        public virtual References References1 { get; set; }
     }
 }

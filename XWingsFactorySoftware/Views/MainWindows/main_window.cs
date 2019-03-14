@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using XWings_MainWindows.OtrasGestiones;
 using XWings_MainWindows.Views.Mantenimiento;
+using XWingsFactorySoftware.Views.Mantenimiento;
 
 namespace XWingsFactorySoftware
 {
@@ -22,6 +23,12 @@ namespace XWingsFactorySoftware
         {
             AccessLevel acceso = new AccessLevel();
             acceso.Show();
+        }
+
+        private void Btn_users_Click(object sender, EventArgs e)
+        {
+            Users users = new Users();
+            users.Show();
         }
     }
 }

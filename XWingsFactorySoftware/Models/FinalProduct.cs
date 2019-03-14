@@ -7,24 +7,28 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace XWingsFactorySoftware.Data
+namespace XWingsFactorySoftware.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class ReferenceTypes
+    public partial class FinalProduct
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ReferenceTypes()
+        public FinalProduct()
         {
-            this.References = new HashSet<References>();
+            this.FinalProductDetails = new HashSet<FinalProductDetails>();
         }
     
-        public short idReferenceType { get; set; }
-        public string codeReferenceType { get; set; }
-        public string descReferenceType { get; set; }
+        public short idFinalProduct { get; set; }
+        public short idReference { get; set; }
+        public string codeProduct { get; set; }
+        public short idStatus { get; set; }
+        public short idLOPDetail { get; set; }
     
+        public virtual LOPDetails LOPDetails { get; set; }
+        public virtual Status Status { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<References> References { get; set; }
+        public virtual ICollection<FinalProductDetails> FinalProductDetails { get; set; }
     }
 }

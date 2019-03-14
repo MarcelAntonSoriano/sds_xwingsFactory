@@ -7,18 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace XWingsFactorySoftware.Data
+namespace XWingsFactorySoftware.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class FinalProductDetails
+    public partial class StockMovements
     {
-        public short idFinalProductDetail { get; set; }
-        public short idFinalProduct { get; set; }
-        public short idIntermediateProduct { get; set; }
-    
-        public virtual FinalProduct FinalProduct { get; set; }
-        public virtual IntermediateProduct IntermediateProduct { get; set; }
+        public short idStockMovement { get; set; }
+        public short idStockMovementTypes { get; set; }
+        public Nullable<short> Quantity { get; set; }
+        public Nullable<short> idDocument { get; set; }
     }
 }

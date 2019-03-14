@@ -6,11 +6,11 @@ namespace XWingsFactorySoftware
     public partial class splash : Form
     {
         private Timer timer;
+
         public splash()
         {
             InitializeComponent();
         }
-
         //Carga el Timer del Splash
         private void Form1_Load(object sender, EventArgs e)
         {
