@@ -26,28 +26,10 @@ namespace XWingsFactorySoftware
             acceso.Show();
         }
 
-        private void Btn_users_Click(object sender, EventArgs e)
-        {
-            Users users = new Users();
-            users.Show();
-        }
-
         private void Btn_instrucciones_Click(object sender, EventArgs e)
         {
-            instrucciones_montaje montaje = new instrucciones_montaje();
-            montaje.Show();
-        }
-
-        private void Btn_ordenes_Click(object sender, EventArgs e)
-        {
-            ordenes_fabricacion ordenes = new ordenes_fabricacion();
-            ordenes.Show();
-        }
-
-        private void Btn_proceso_Click(object sender, EventArgs e)
-        {
-            proceso_fabricacion proceso = new proceso_fabricacion();
-            proceso.Show();
+            instrucciones_montaje instrucciones = new instrucciones_montaje();
+            instrucciones.Show();
         }
     }
 }
