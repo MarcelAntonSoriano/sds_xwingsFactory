@@ -144,6 +144,7 @@
             this.Btn_instrucciones.TabIndex = 4;
             this.Btn_instrucciones.Text = "Instrucciones Montaje";
             this.Btn_instrucciones.Transparency = false;
+            this.Btn_instrucciones.Click += new System.EventHandler(this.Btn_instrucciones_Click);
             // 
             // Btn_ordenes
             // 

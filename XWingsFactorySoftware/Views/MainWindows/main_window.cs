@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using XWings_MainWindows.OtrasGestiones;
 using XWings_MainWindows.Views.Mantenimiento;
 using XWingsFactorySoftware.Views.Mantenimiento;
+using XWingsFactorySoftware.Views.OtrasGestiones;
 
 namespace XWingsFactorySoftware
 {
@@ -29,6 +30,12 @@ namespace XWingsFactorySoftware
         {
             Users users = new Users();
             users.Show();
+        }
+
+        private void Btn_instrucciones_Click(object sender, EventArgs e)
+        {
+            instrucciones_montaje montaje = new instrucciones_montaje();
+            montaje.Show();
         }
     }
 }
