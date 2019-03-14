@@ -165,6 +165,7 @@
             this.Btn_ordenes.TabIndex = 5;
             this.Btn_ordenes.Text = "Órdenes Fabricación";
             this.Btn_ordenes.Transparency = false;
+            this.Btn_ordenes.Click += new System.EventHandler(this.Btn_ordenes_Click);
             // 
             // Btn_tipos_referencia
             // 
@@ -205,6 +206,7 @@
             this.Btn_proceso.TabIndex = 7;
             this.Btn_proceso.Text = "Proceso Fabricación";
             this.Btn_proceso.Transparency = false;
+            this.Btn_proceso.Click += new System.EventHandler(this.Btn_proceso_Click);
             // 
             // groupBox1
             // 

@@ -37,5 +37,17 @@ namespace XWingsFactorySoftware
             instrucciones_montaje montaje = new instrucciones_montaje();
             montaje.Show();
         }
+
+        private void Btn_ordenes_Click(object sender, EventArgs e)
+        {
+            ordenes_fabricacion ordenes = new ordenes_fabricacion();
+            ordenes.Show();
+        }
+
+        private void Btn_proceso_Click(object sender, EventArgs e)
+        {
+            proceso_fabricacion proceso = new proceso_fabricacion();
+            proceso.Show();
+        }
     }
 }
