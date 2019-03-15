@@ -154,6 +154,18 @@
     <Compile Include="Views\Mantenimiento\AccessLevel.Designer.cs">
       <DependentUpon>AccessLevel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Mantenimiento\Referencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Mantenimiento\Referencias.Designer.cs">
+      <DependentUpon>Referencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Mantenimiento\tipo_referencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Mantenimiento\tipo_referencias.Designer.cs">
+      <DependentUpon>tipo_referencias.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Mantenimiento\Users.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,18 +191,6 @@
     </Compile>
     <Compile Include="Views\OtrasGestiones\instrucciones_montaje.Designer.cs">
       <DependentUpon>instrucciones_montaje.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\OtrasGestiones\ordenes_fabricacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\OtrasGestiones\ordenes_fabricacion.Designer.cs">
-      <DependentUpon>ordenes_fabricacion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\OtrasGestiones\proceso_fabricacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\OtrasGestiones\proceso_fabricacion.Designer.cs">
-      <DependentUpon>proceso_fabricacion.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="CustomControls\custom_treeview.resx">
       <DependentUpon>custom_treeview.cs</DependentUpon>

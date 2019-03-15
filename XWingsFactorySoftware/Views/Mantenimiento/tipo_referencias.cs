@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace XWingsFactorySoftware.Views.Mantenimiento
 {
-    public partial class AccessLevel : Form
+    public partial class tipo_referencias : Form
     {
-        public AccessLevel()
+        public tipo_referencias()
         {
             InitializeComponent();
         }
