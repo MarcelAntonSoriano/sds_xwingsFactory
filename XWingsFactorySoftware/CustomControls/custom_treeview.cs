@@ -19,7 +19,7 @@ namespace XWings_MainWindows.CustomControls
         }
 
         //Aquí hay que obtener Diccionario de otra clase
-        IDictionary<string, List<string>> dict = new Dictionary<string, List<string>>()
+        public IDictionary<string, List<string>> dict = new Dictionary<string, List<string>>()
         {
             { "Item 1", new List<string> {"Value 1", "Value 2", "Value 3"} },
             { "Item 2", new List<string> {"Value 1"} },
