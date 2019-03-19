@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 using XWings_MainWindows.OtrasGestiones;
-using XWings_MainWindows.Views.Mantenimiento;
 using XWingsFactorySoftware.Views.Mantenimiento;
 using XWingsFactorySoftware.Views.OtrasGestiones;
 
