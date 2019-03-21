@@ -60,3 +60,4 @@ C:\Users\admin\Documents\GitHub\sds_xwingsFactory\XWingsFactorySoftware\obj\Debu
 C:\Users\admin\Documents\GitHub\sds_xwingsFactory\XWingsFactorySoftware\obj\Debug\XWingsFactorySoftware.pdb
 C:\Users\admin\Documents\GitHub\sds_xwingsFactory\XWingsFactorySoftware\obj\Debug\XWingsFactorySoftware.Views.Mantenimiento.Users.resources
 C:\Users\admin\Documents\GitHub\sds_xwingsFactory\XWingsFactorySoftware\obj\Debug\XWingsFactorySoftware.Views.Mantenimiento.AccessLevel.resources
+C:\Users\admin\Documents\GitHub\sds_xwingsFactory\XWingsFactorySoftware\obj\Debug\XWingsFactorySoftware.Views.Mantenimiento.tipo_referencias.resources

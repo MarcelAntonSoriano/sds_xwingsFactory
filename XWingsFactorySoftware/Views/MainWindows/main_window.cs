@@ -30,5 +30,11 @@ namespace XWingsFactorySoftware
             instrucciones_montaje instrucciones = new instrucciones_montaje();
             instrucciones.Show();
         }
+
+        private void Btn_tipos_referencia_Click(object sender, EventArgs e)
+        {
+            tipo_referencias tr = new tipo_referencias();
+            tr.Show();
+        }
     }
 }

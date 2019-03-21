@@ -208,6 +208,9 @@
     <EmbeddedResource Include="Views\Mantenimiento\AccessLevel.resx">
       <DependentUpon>AccessLevel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Mantenimiento\tipo_referencias.resx">
+      <DependentUpon>tipo_referencias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Mantenimiento\Users.resx">
       <DependentUpon>Users.cs</DependentUpon>
     </EmbeddedResource>

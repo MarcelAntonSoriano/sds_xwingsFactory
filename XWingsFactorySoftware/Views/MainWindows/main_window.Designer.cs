@@ -141,6 +141,7 @@
             this.Btn_tipos_referencia.TabIndex = 6;
             this.Btn_tipos_referencia.Text = "Tipos  de Referencias";
             this.Btn_tipos_referencia.Transparency = false;
+            this.Btn_tipos_referencia.Click += new System.EventHandler(this.Btn_tipos_referencia_Click);
             // 
             // groupBox1
             // 
