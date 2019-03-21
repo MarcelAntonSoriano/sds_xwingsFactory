@@ -45,7 +45,6 @@ C:\Users\admin\Documents\GitHub\sds_xwingsFactory\XWingsFactorySoftware\bin\Debu
 C:\Users\admin\Documents\GitHub\sds_xwingsFactory\XWingsFactorySoftware\bin\Debug\EntityFramework.xml
 C:\Users\admin\Documents\GitHub\sds_xwingsFactory\XWingsFactorySoftware\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\admin\Documents\GitHub\sds_xwingsFactory\XWingsFactorySoftware\obj\Debug\XWingsFactorySoftware.csprojAssemblyReference.cache
-C:\Users\admin\Documents\GitHub\sds_xwingsFactory\XWingsFactorySoftware\obj\Debug\XWings_MainWindows.CustomControls.custom_treeview.resources
 C:\Users\admin\Documents\GitHub\sds_xwingsFactory\XWingsFactorySoftware\obj\Debug\XWingsFactorySoftware.login.resources
 C:\Users\admin\Documents\GitHub\sds_xwingsFactory\XWingsFactorySoftware\obj\Debug\XWingsFactorySoftware.main_window.resources
 C:\Users\admin\Documents\GitHub\sds_xwingsFactory\XWingsFactorySoftware\obj\Debug\XWingsFactorySoftware.splash.resources

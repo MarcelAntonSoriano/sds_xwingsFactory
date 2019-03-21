@@ -58,12 +58,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomControls\custom_treeview.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="CustomControls\custom_treeview.Designer.cs">
-      <DependentUpon>custom_treeview.cs</DependentUpon>
-    </Compile>
     <Compile Include="Models\AssemblyInstructions.cs">
       <DependentUpon>bdTest.tt</DependentUpon>
     </Compile>
@@ -192,9 +186,6 @@
     <Compile Include="Views\OtrasGestiones\instrucciones_montaje.Designer.cs">
       <DependentUpon>instrucciones_montaje.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CustomControls\custom_treeview.resx">
-      <DependentUpon>custom_treeview.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\MainWindows\login.resx">
       <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
