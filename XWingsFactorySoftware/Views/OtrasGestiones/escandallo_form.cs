@@ -31,7 +31,7 @@ namespace XWings_MainWindows.OtrasGestiones
                 foreach (var elemento in dict_escandallo)
                 {
                     TreeNode item = new TreeNode(elemento.Key);
-                    treeView.Nodes.Add(item);
+                    nave.Nodes.Add(item);
                     foreach (string value in elemento.Value)
                         item.Nodes.Add(value);
                 }
