@@ -180,11 +180,11 @@
     <Compile Include="Views\MainWindows\splash.Designer.cs">
       <DependentUpon>splash.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\OtrasGestiones\Form1.cs">
+    <Compile Include="Views\OtrasGestiones\escandallo_gestion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\OtrasGestiones\Form1.designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Views\OtrasGestiones\escandallo_gestion.designer.cs">
+      <DependentUpon>escandallo_gestion.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\OtrasGestiones\instrucciones_montaje.cs">
       <SubType>Form</SubType>
@@ -220,8 +220,8 @@
     <EmbeddedResource Include="Views\OtrasGestiones\escandallo_form.resx">
       <DependentUpon>escandallo_form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\OtrasGestiones\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Views\OtrasGestiones\escandallo_gestion.resx">
+      <DependentUpon>escandallo_gestion.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Models\bdTest.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
