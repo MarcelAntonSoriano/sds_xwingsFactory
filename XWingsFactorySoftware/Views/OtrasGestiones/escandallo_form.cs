@@ -79,5 +79,12 @@ namespace XWings_MainWindows.OtrasGestiones
             txtBox_Desc.Text = e.Node.Text;
             pictureBox1.ImageLocation = photo_path;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form frm = new Form();
+            frm.Show();
+        }
     }
 }
