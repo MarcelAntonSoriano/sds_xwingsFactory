@@ -16,7 +16,7 @@ namespace XWingsFactorySoftware.Views.Mantenimiento
     {
         public xwingsfactoryEntities ef = new xwingsfactoryEntities();
         public ReferenceTypes ReferenceT = new ReferenceTypes();
-
+  
 
 
         public tipo_referencias()
@@ -31,27 +31,32 @@ namespace XWingsFactorySoftware.Views.Mantenimiento
 
         private void CargarDataGrid()
         {
-            var select = from rt in ef.ReferenceTypes.AsEnumerable()
+            var dataSelect = from rt in ef.ReferenceTypes.AsEnumerable()
                          select new
                          {
-                             Code = rt.codeReferenceType,
-                             Description = rt.descReferenceType
+                             Código = rt.codeReferenceType,
+                             Descripción = rt.descReferenceType
                          };
-            dgrid_typeRef.DataSource = select.ToList();
+
+            var dataSelect2 = from rt in ef.ReferenceTypes.AsEnumerable()
+                              select rt;
+
+            dgrid_typeRef.DataSource = dataSelect.ToList();
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl.GetType() == typeof(TextBox))
+                {
+                    ((TextBox)ctrl).DataBindings.Clear();
+                    //ctrl.Text = "";
 
 
-            //  HAY QUE HACER QUE AL SELECCIONAR ALGO, SE META EN LOS TEXTBOXS
+                    ((TextBox)ctrl).DataBindings.Add("Text", dataSelect.ToList(), (((TextBox)ctrl).Tag).ToString());
 
-            //foreach (Control ctrl in this.Controls)
-            //{
-            //    if (ctrl.GetType() == typeof(TextBox))
-            //    {
-            //        ((TextBox)ctrl).DataBindings.Clear();
-            //        ctrl.Text = "";
-            //        ((TextBox)ctrl).DataBindings.Add("Text", select, (((TextBox)ctrl).Tag).ToString());
+                }
+            }
 
-            //    }
-            //}
+
+
         }
 
         private void dgrid_typeRef_CellContentClick(object sender, DataGridViewCellEventArgs e)

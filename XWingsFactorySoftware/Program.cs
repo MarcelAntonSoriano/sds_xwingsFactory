@@ -17,8 +17,7 @@ namespace XWingsFactorySoftware
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new login());
-            Application.Run(new tipo_referencias());
+            Application.Run(new login());
         }
     }
 }
