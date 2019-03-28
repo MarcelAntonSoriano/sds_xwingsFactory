@@ -16,7 +16,11 @@ namespace XWingsFactorySoftware.Views.Mantenimiento
     {
         public xwingsfactoryEntities ef = new xwingsfactoryEntities();
         public ReferenceTypes ReferenceT = new ReferenceTypes();
-  
+        private List<ReferenceTypes> data = new List<ReferenceTypes>();
+
+        private bool isNewRow = false;
+
+
 
 
         public tipo_referencias()
@@ -26,43 +30,26 @@ namespace XWingsFactorySoftware.Views.Mantenimiento
 
         private void tipo_referencias_Load(object sender, EventArgs e)
         {
-            CargarDataGrid();
+            //var Estructura = new List<ReferenceTypes>(from s in ef.ReferenceTypes select s).ToList();
+            data = ef.ReferenceTypes.ToList();
+            dgrid_typeRef.DataSource = data;
+            DataBinding();
+
         }
 
-        private void CargarDataGrid()
+        private void DataBinding()
         {
-            var dataSelect = from rt in ef.ReferenceTypes.AsEnumerable()
-                         select new
-                         {
-                             Código = rt.codeReferenceType,
-                             Descripción = rt.descReferenceType
-                         };
-
-            var dataSelect2 = from rt in ef.ReferenceTypes.AsEnumerable()
-                              select rt;
-
-            dgrid_typeRef.DataSource = dataSelect.ToList();
             foreach (Control ctrl in this.Controls)
             {
                 if (ctrl.GetType() == typeof(TextBox))
                 {
                     ((TextBox)ctrl).DataBindings.Clear();
-                    //ctrl.Text = "";
-
-
-                    ((TextBox)ctrl).DataBindings.Add("Text", dataSelect.ToList(), (((TextBox)ctrl).Tag).ToString());
-
+                    ctrl.Text = "";
+                    ((TextBox)ctrl).DataBindings.Add("Text", data, (((TextBox)ctrl).Tag).ToString());
                 }
             }
-
-
-
         }
 
-        private void dgrid_typeRef_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
     }
 }
-        
+
